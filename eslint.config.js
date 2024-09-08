@@ -5,6 +5,10 @@ export default antfu({
     semi: true,
   },
 
+  ignores: [
+    'README.md',
+  ],
+
   rules: {
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],

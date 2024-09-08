@@ -5,6 +5,16 @@ const unitsByBase = {
   1024: ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'],
 };
 
+/**
+ * Formats a number of bytes into a human-readable string.
+ *
+ * @example
+ * ```typescript
+ * const formatted = formatBytes({ bytes: 4194304 });
+ *
+ * console.log(formatted); // 4 MiB
+ * ```
+ */
 function formatBytes({
   bytes,
   decimals = 2,

@@ -7,6 +7,7 @@ export { injectArguments };
  *  Injects arguments into a set of functions. Useful for DI of repositories, services, etc.
  *
  *  @example
+ *  ```typescript
  *  const functions = {
  *   getUser: ({ userId, db }) => db.users.find({ id: userId }),
  *   removeUser: ({ userId, db }) => db.users.remove({ id: userId }),
@@ -16,6 +17,7 @@ export { injectArguments };
  *
  *  getUser({ userId: 1 });
  *  removeUser({ userId: 1 });
+ * ```
  */
 function injectArguments<Functions extends Dictionary<(args: any) => any>, InjectedArgs>(functions: Functions, injectedArgs: InjectedArgs) {
   return mapValues(functions, (fn) => {
