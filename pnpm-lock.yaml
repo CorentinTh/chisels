@@ -13,7 +13,7 @@ importers:
         version: 4.17.21
     devDependencies:
       '@antfu/eslint-config':
-        specifier: ^3.0.0
+        specifier: ^3.4.1
         version: 3.4.1(@typescript-eslint/utils@8.4.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4))(@vue/compiler-sfc@3.5.3)(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)(vitest@2.0.5)
       '@types/lodash-es':
         specifier: ^4.17.12
