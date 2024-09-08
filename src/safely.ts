@@ -1,10 +1,7 @@
-import { isError, isFunction } from 'lodash-es';
+import { isFunction } from 'lodash-es';
+import { castError } from './errors';
 
 export { safely, safelySync };
-
-function castError(error: unknown): Error {
-  return isError(error) ? error : new Error(String(error));
-}
 
 function safelySync<T>(fn: () => T): [T, null] | [null, Error] {
   try {

@@ -43,9 +43,15 @@ console.log({ result, error });
 * Bytes
   * [formatBytes](./src/bytes.ts)
 
+* Errors
+  * [castError](./src/errors.ts)
+
+* Injection
+  * [injectArguments](./src/injection.ts)
+
 * Safely
-  * [safelySync](./src/safely.ts)
   * [safely](./src/safely.ts)
+  * [safelySync](./src/safely.ts)
 
 * Types
   * [PartialBy](./src/types.ts)
@@ -53,9 +59,6 @@ console.log({ result, error });
   * [Dictionary](./src/types.ts)
   * [DeepPartial](./src/types.ts)
   * [Subtract](./src/types.ts)
-
-* Injection
-  * [injectArguments](./src/injection.ts)
 
 <!-- API-DOCS-END -->
 
