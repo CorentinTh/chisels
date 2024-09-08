@@ -2,12 +2,18 @@
   "name": "@corentinth/chisels",
   "type": "module",
   "version": "1.0.1",
+  "packageManager": "pnpm@9.2.0",
   "description": "Collection of utilities for JavaScript and TypeScript, lightweight and tree-shakable.",
   "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
   "license": "MIT",
+  "funding": "https://github.com/sponsors/CorentinTh",
+  "homepage": "https://github.com/CorentinTh/chisels#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/CorentinTh/chisels"
+  },
+  "bugs": {
+    "url": "https://github.com/CorentinTh/chisels/issues"
   },
   "keywords": [
     "utilities",
@@ -18,6 +24,7 @@
     "esm",
     "module"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
