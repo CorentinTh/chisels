@@ -1,0 +1,54 @@
+{
+  "name": "@corentinth/chisels",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Collection of utilities for JavaScript and TypeScript, lightweight and tree-shakable.",
+  "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
+  "license": "MIT",
+  "keywords": [
+    "utilities",
+    "utils",
+    "typescript",
+    "javascript",
+    "tree-shakable",
+    "esm",
+    "module"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "pnpm run test:unit",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build",
+    "script:generate-api-doc": "tsx ./scripts/generate-api-doc.ts",
+    "release": "bumpp --commit --push --tag && npm publish"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.27.0",
+    "@types/lodash-es": "^4.17.12",
+    "@vitest/coverage-v8": "^2.0.5",
+    "bumpp": "^9.5.2",
+    "eslint": "^9.9.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "unbuild": "^2.0.0",
+    "vitest": "^2.0.5"
+  }
+}

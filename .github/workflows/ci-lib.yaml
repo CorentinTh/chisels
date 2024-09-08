@@ -1,0 +1,35 @@
+name: CI - Lib
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-lib:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          corepack: true
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run linters
+        run: pnpm lint
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Run unit test
+        run: pnpm test
+
+      - name: Build the lib
+        run: pnpm build
