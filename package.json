@@ -1,7 +1,7 @@
 {
   "name": "@corentinth/chisels",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Collection of utilities for JavaScript and TypeScript, lightweight and tree-shakable.",
   "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
   "license": "MIT",
