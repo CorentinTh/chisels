@@ -1,6 +1,6 @@
 import { isError, isFunction } from 'lodash-es';
 
-export { safelySync, safely };
+export { safely, safelySync };
 
 function castError(error: unknown): Error {
   return isError(error) ? error : new Error(String(error));
