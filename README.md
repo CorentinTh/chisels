@@ -72,13 +72,13 @@ Casts an unknown value to an Error.
 
 ### `safelySync`
 
-Function - [See source](./src/safely.ts#L20)
+Function - [See source](./src/safely.ts#L43)
 
 Safely executes a function and return a tuple with the result and an error if any.
 
 
 ```typescript
-const [result, error] = safely(myFunction);
+const [result, error] = safelySync(myFunction);
 
 if (error) {
  console.error(error);
@@ -89,7 +89,7 @@ console.log(result);
 
 ### `safely`
 
-Function - [See source](./src/safely.ts#L42)
+Function - [See source](./src/safely.ts#L20)
 
 Safely executes an async function or promise and return a tuple with the result and an error if any.
 
