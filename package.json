@@ -1,7 +1,7 @@
 {
   "name": "@corentinth/chisels",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packageManager": "pnpm@9.2.0",
   "description": "Collection of utilities for JavaScript and TypeScript, lightweight and tree-shakable.",
   "author": "Corentin Thomasset <corentinth@proton.me> (https://corentin.tech)",
