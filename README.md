@@ -1,9 +1,13 @@
-# Chisels - Opinionated collection of reusable JS/TS utilities
+# Chisels - JS/TS utilities and types
 
-Opinionated collection of reusable JS/TS utilities.
+Opinionated collection of reusable JS/TS utilities and types.
 
-* Tree-shakable
-* Fully tested
+* **Tree-shakable ES modules**: Import only what you need
+* **Fully tested**: Rigorous unit tests with comprehensive coverage
+* **TypeScript support**: Written in TypeScript with full type definitions
+* **Lightweight**: Small bundle size
+* **Modern**: Written with modern JS/TS syntax
+* **Named arguments**: Functions with preferably named arguments
 
 ## Installation
 
