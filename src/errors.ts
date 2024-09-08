@@ -17,5 +17,5 @@ export { castError };
  *  ```
  */
 function castError(error: unknown): Error {
-  return isError(error) ? error : new Error(String(error));
+  return isError(error) ? error : new Error(error ? String(error) : undefined);
 }
