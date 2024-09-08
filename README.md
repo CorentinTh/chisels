@@ -40,25 +40,154 @@ console.log({ result, error });
 
 <!-- API-DOCS-START -->
 
-* Bytes
-  * [formatBytes](./src/bytes.ts)
+### `formatBytes`
 
-* Errors
-  * [castError](./src/errors.ts)
+Function - [See source](./src/bytes.ts#L18)
 
-* Injection
-  * [injectArguments](./src/injection.ts)
+Formats a number of bytes into a human-readable string.
 
-* Safely
-  * [safely](./src/safely.ts)
-  * [safelySync](./src/safely.ts)
 
-* Types
-  * [PartialBy](./src/types.ts)
-  * [Expand](./src/types.ts)
-  * [Dictionary](./src/types.ts)
-  * [DeepPartial](./src/types.ts)
-  * [Subtract](./src/types.ts)
+```typescript
+const formatted = formatBytes({ bytes: 4194304 });
+
+console.log(formatted); // 4 MiB
+```
+
+### `castError`
+
+Function - [See source](./src/errors.ts#L19)
+
+Casts an unknown value to an Error.
+
+
+```typescript
+ try {
+     // ...
+ } catch (rawError) {
+   const error = castError(rawError);
+
+   // Do something with a proper Error instance
+ }
+ ```
+
+### `safelySync`
+
+Function - [See source](./src/safely.ts#L20)
+
+Safely executes a function and return a tuple with the result and an error if any.
+
+
+```typescript
+const [result, error] = safely(myFunction);
+
+if (error) {
+ console.error(error);
+}
+
+console.log(result);
+```
+
+### `safely`
+
+Function - [See source](./src/safely.ts#L42)
+
+Safely executes an async function or promise and return a tuple with the result and an error if any.
+
+
+```typescript
+const [result, error] = await safely(myFunction);
+
+if (error) {
+ console.error(error);
+}
+
+console.log(result);
+```
+
+### `injectArguments`
+
+Function - [See source](./src/injection.ts#L22)
+
+Injects arguments into a set of functions. Useful for DI of repositories, services, etc.
+
+
+```typescript
+ const functions = {
+  getUser: ({ userId, db }) => db.users.find({ id: userId }),
+  removeUser: ({ userId, db }) => db.users.remove({ id: userId }),
+ };
+
+ const { getUser, removeUser } = injectArguments(functions, { db });
+
+ getUser({ userId: 1 });
+ removeUser({ userId: 1 });
+```
+
+### `PartialBy`
+
+Type alias - [See source](./src/types.ts#L17)
+
+Make some properties of T optional
+
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type PartialUser = PartialBy<User, 'email' | 'name'>;
+
+const user: PartialUser = { id: 1 };
+```
+
+### `Expand`
+
+Type alias - [See source](./src/types.ts#L22)
+
+Flatten an object type for better IDE support
+
+### `Dictionary`
+
+Type alias - [See source](./src/types.ts#L35)
+
+Record<string, T> alias
+
+
+```typescript
+const dictionary: Dictionary<number> = {
+  a: 1,
+  b: 2,
+};
+```
+
+### `DeepPartial`
+
+Type alias - [See source](./src/types.ts#L40)
+
+Make all properties of T optional recursively
+
+### `Subtract`
+
+Type alias - [See source](./src/types.ts#L64)
+
+Exclude properties of T that are in U
+
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type WithId = {
+  id: number;
+}
+
+type UserWithoutId = Subtract<User, WithId>;
+```
 
 <!-- API-DOCS-END -->
 
