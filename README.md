@@ -40,36 +40,6 @@ console.log({ result, error });
 
 <!-- API-DOCS-START -->
 
-### `formatBytes`
-
-Function - [See source](./src/bytes.ts#L18)
-
-Formats a number of bytes into a human-readable string.
-
-
-```typescript
-const formatted = formatBytes({ bytes: 4194304 });
-
-console.log(formatted); // 4 MiB
-```
-
-### `castError`
-
-Function - [See source](./src/errors.ts#L19)
-
-Casts an unknown value to an Error.
-
-
-```typescript
- try {
-     // ...
- } catch (rawError) {
-   const error = castError(rawError);
-
-   // Do something with a proper Error instance
- }
- ```
-
 ### `safelySync`
 
 Function - [See source](./src/safely.ts#L43)
@@ -102,6 +72,62 @@ if (error) {
 }
 
 console.log(result);
+```
+
+### `formatBytes`
+
+Function - [See source](./src/bytes.ts#L18)
+
+Formats a number of bytes into a human-readable string.
+
+
+```typescript
+const formatted = formatBytes({ bytes: 4194304 });
+
+console.log(formatted); // 4 MiB
+```
+
+### `castError`
+
+Function - [See source](./src/errors.ts#L19)
+
+Casts an unknown value to an Error.
+
+
+```typescript
+ try {
+     // ...
+ } catch (rawError) {
+   const error = castError(rawError);
+
+   // Do something with a proper Error instance
+ }
+ ```
+
+### `joinUrlPaths`
+
+Function - [See source](./src/url.ts#L13)
+
+Join URL parts and trim slashes.
+
+
+```typescript
+const url = joinUrlPaths('/part1/', '/part2/', 'part3', 'part4/');
+
+console.log(url); // 'part1/part2/part3/part4'
+```
+
+### `buildUrl`
+
+Function - [See source](./src/url.ts#L27)
+
+Functional wrapper around URL constructor to build an URL string from a base URL and optional path, query params and hash.
+
+
+```typescript
+const url = buildUrl({ baseUrl: 'https://example.com', path: 'foo', queryParams: { a: '1', b: '2' }, hash: 'hash' });
+
+console.log(url); // 'https://example.com/foo?a=1&b=2#hash'
 ```
 
 ### `injectArguments`
