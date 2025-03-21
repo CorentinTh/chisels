@@ -11,7 +11,7 @@ export { buildUrl, joinUrlPaths };
  * ```
  */
 function joinUrlPaths(...parts: string[]): string {
-  return parts.map(part => part.replace(/(^\/|\/$)/g, '')).filter(Boolean).join('/');
+  return parts.map(part => part?.replace(/(^\/|\/$)/g, '')).filter(Boolean).join('/');
 }
 
 /**

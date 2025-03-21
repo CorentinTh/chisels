@@ -14,6 +14,14 @@ describe('url', () => {
     test('multiple slashes inside a part are preserved', () => {
       expect(joinUrlPaths('/part1//part2/', '/part3/')).to.eql('part1//part2/part3');
     });
+
+    test('a nullish part is ignored', () => {
+      expect(joinUrlPaths('/part1/', null, '/part2/')).to.eql('part1/part2');
+      expect(joinUrlPaths('/part1/', undefined, '/part2/')).to.eql('part1/part2');
+      expect(joinUrlPaths('/part1/', '', '/part2/')).to.eql('part1/part2');
+
+      expect(joinUrlPaths('/part1/', null, null, '/part2/')).to.eql('part1/part2');
+    });
   });
 
   describe('buildUrl', () => {
