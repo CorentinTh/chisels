@@ -26,5 +26,10 @@ describe('url', () => {
       expect(buildUrl({ baseUrl: 'https://example.com', path: '/path', hash: 'hash' })).to.eql('https://example.com/path#hash');
       expect(buildUrl({ baseUrl: 'https://example.com', path: '/path', queryParams: { a: '1', b: '2' }, hash: 'hash' })).to.eql('https://example.com/path?a=1&b=2#hash');
     });
+
+    test('the path can either be a string or an array of strings, in which case the paths are joined together', () => {
+      expect(buildUrl({ baseUrl: 'https://example.com', path: ['path1', 'path2'] })).to.eql('https://example.com/path1/path2');
+      expect(buildUrl({ baseUrl: 'https://example.com', path: ['/path1/', '/path2/'] })).to.eql('https://example.com/path1/path2');
+    });
   });
 });
