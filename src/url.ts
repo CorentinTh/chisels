@@ -25,16 +25,17 @@ function joinUrlPaths(...parts: string[]): string {
  * ```
  */
 function buildUrl({
-  path = '',
+  path: pathOrPaths = '',
   baseUrl,
   queryParams,
   hash,
 }: {
-  path?: string;
+  path?: string | string[];
   baseUrl: string;
   queryParams?: Record<string, string> | URLSearchParams;
   hash?: string;
 }): string {
+  const path = Array.isArray(pathOrPaths) ? joinUrlPaths(...pathOrPaths) : pathOrPaths;
   const url = new URL(path, baseUrl);
 
   if (queryParams) {
