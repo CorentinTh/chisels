@@ -10,8 +10,8 @@ export { buildUrl, joinUrlPaths };
  * console.log(url); // 'part1/part2/part3/part4'
  * ```
  */
-function joinUrlPaths(...parts: string[]): string {
-  return parts.map(part => part.replace(/(^\/|\/$)/g, '')).filter(Boolean).join('/');
+function joinUrlPaths(...parts: (string | null | undefined)[]): string {
+  return parts.map(part => part?.replace(/(^\/|\/$)/g, '')).filter(Boolean).join('/');
 }
 
 /**
