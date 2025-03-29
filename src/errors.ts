@@ -1,5 +1,3 @@
-import { isError } from 'lodash-es';
-
 export { castError };
 
 /**
@@ -17,5 +15,5 @@ export { castError };
  *  ```
  */
 function castError(error: unknown): Error {
-  return isError(error) ? error : new Error(error ? String(error) : undefined);
+  return error instanceof Error ? error : new Error(error ? String(error) : undefined);
 }
