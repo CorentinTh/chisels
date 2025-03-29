@@ -51,11 +51,11 @@
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
     "@vitest/coverage-v8": "^3.0.9",
-    "bumpp": "^9.5.2",
+    "bumpp": "^10.1.0",
     "eslint": "^9.23.0",
     "tsdoc-extractor": "^0.2.0",
-    "tsx": "^4.19.0",
-    "typescript": "^5.5.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
     "unbuild": "^3.5.0",
     "vitest": "^3.0.9"
   }
