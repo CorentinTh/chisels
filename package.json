@@ -48,12 +48,8 @@
     "script:generate-api-doc": "tsx ./scripts/generate-api-doc.ts",
     "release": "bumpp --commit --push --tag && npm publish"
   },
-  "dependencies": {
-    "lodash-es": "^4.17.21"
-  },
   "devDependencies": {
     "@antfu/eslint-config": "^3.4.1",
-    "@types/lodash-es": "^4.17.12",
     "@vitest/coverage-v8": "^2.0.5",
     "bumpp": "^9.5.2",
     "eslint": "^9.9.0",

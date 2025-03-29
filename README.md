@@ -4,6 +4,7 @@ Opinionated collection of reusable JS/TS utilities and types.
 
 * **Tree-shakable ES modules**: Import only what you need
 * **Fully tested**: Rigorous unit tests with comprehensive coverage
+* **Dependency free**: No runtime dependencies
 * **TypeScript support**: Written in TypeScript with full type definitions
 * **Lightweight**: Small bundle size
 * **Modern**: Written with modern JS/TS syntax

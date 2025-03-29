@@ -1,4 +1,3 @@
-import { isFunction } from 'lodash-es';
 import { castError } from './errors';
 
 export { safely, safelySync };
@@ -19,7 +18,7 @@ export { safely, safelySync };
  */
 async function safely<T>(fn: (() => Promise<T> | T) | Promise<T>): Promise<[T, null] | [null, Error]> {
   try {
-    const result = isFunction(fn) ? await fn() : await fn;
+    const result = typeof fn === 'function' ? await fn() : await fn;
     return [result, null];
   } catch (error) {
     return [null, castError(error)];

@@ -1,4 +1,3 @@
-import { mapValues } from 'lodash-es';
 import type { Dictionary, Expand, Subtract } from './types';
 
 export { injectArguments };
@@ -20,9 +19,7 @@ export { injectArguments };
  * ```
  */
 function injectArguments<Functions extends Dictionary<(args: any) => any>, InjectedArgs>(functions: Functions, injectedArgs: InjectedArgs) {
-  return mapValues(functions, (fn) => {
-    return (args: any) => fn({ ...args, ...injectedArgs });
-  }) as {
+  return Object.fromEntries(Object.entries(functions).map(([key, fn]) => [key, (args: any) => fn({ ...args, ...injectedArgs })])) as {
     [K in keyof Functions]: Expand<Subtract<Parameters<Functions[K]>[0], InjectedArgs>> extends infer Args
       // eslint-disable-next-line ts/no-empty-object-type
       ? {} extends Args
