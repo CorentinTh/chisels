@@ -43,7 +43,7 @@ console.log({ result, error });
 
 ### `safelySync`
 
-Function - [See source](./src/safely.ts#L43)
+Function - [See source](./src/safely.ts#L42)
 
 Safely executes a function and return a tuple with the result and an error if any.
 
@@ -60,7 +60,7 @@ console.log(result);
 
 ### `safely`
 
-Function - [See source](./src/safely.ts#L20)
+Function - [See source](./src/safely.ts#L19)
 
 Safely executes an async function or promise and return a tuple with the result and an error if any.
 
@@ -90,7 +90,7 @@ console.log(formatted); // 4 MiB
 
 ### `castError`
 
-Function - [See source](./src/errors.ts#L19)
+Function - [See source](./src/errors.ts#L17)
 
 Casts an unknown value to an Error.
 
@@ -133,7 +133,7 @@ console.log(url); // 'https://example.com/foo?a=1&b=2#hash'
 
 ### `injectArguments`
 
-Function - [See source](./src/injection.ts#L22)
+Function - [See source](./src/injection.ts#L21)
 
 Injects arguments into a set of functions. Useful for DI of repositories, services, etc.
 
@@ -148,6 +148,21 @@ Injects arguments into a set of functions. Useful for DI of repositories, servic
 
  getUser({ userId: 1 });
  removeUser({ userId: 1 });
+```
+
+### `memoizeOnce`
+
+Function - [See source](./src/memo.ts#L13)
+
+This function takes a function that returns a value and returns a new function that caches the result of the first call. Basically a argument-less memoization.
+
+
+```typescript
+const getCwd = memoizeOnce(() => process.cwd());
+
+// process.cwd() is only called once
+console.log(getCwd());
+console.log(getCwd());
 ```
 
 ### `PartialBy`
