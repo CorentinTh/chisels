@@ -21,10 +21,12 @@ export { injectArguments };
 function injectArguments<Functions extends Dictionary<(args: any) => any>, InjectedArgs>(functions: Functions, injectedArgs: InjectedArgs) {
   return Object.fromEntries(Object.entries(functions).map(([key, fn]) => [key, (args: any) => fn({ ...args, ...injectedArgs })])) as {
     [K in keyof Functions]: Expand<Subtract<Parameters<Functions[K]>[0], InjectedArgs>> extends infer Args
-      // eslint-disable-next-line ts/no-empty-object-type
-      ? {} extends Args
-          ? () => ReturnType<Functions[K]>
-          : (args: Args) => ReturnType<Functions[K]>
+      ? keyof Args extends never
+        ? () => ReturnType<Functions[K]>
+        // eslint-disable-next-line ts/no-empty-object-type
+        : {} extends Args
+            ? (args?: Args) => ReturnType<Functions[K]>
+            : (args: Args) => ReturnType<Functions[K]>
       : never;
   };
 }
