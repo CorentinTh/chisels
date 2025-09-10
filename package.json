@@ -26,18 +26,17 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsdown",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "test": "pnpm run test:unit",
@@ -54,9 +53,9 @@
     "bumpp": "^10.1.0",
     "eslint": "^9.23.0",
     "tsdoc-extractor": "^0.2.0",
+    "tsdown": "^0.15.0",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2",
-    "unbuild": "^3.5.0",
+    "typescript": "^5.9.2",
     "vitest": "^3.0.9"
   }
 }
