@@ -25,7 +25,7 @@ function formatBytes({
   decimals?: number;
   base?: 1000 | 1024;
   units?: string[];
-}) {
+}): string {
   if (units === undefined || units.length === 0) {
     throw new Error(`No units defined for base ${base}`);
   }
