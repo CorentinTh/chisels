@@ -1,13 +1,16 @@
-name: CI - Lib
+name: Publish Package
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
 
 jobs:
-  ci-lib:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,18 +23,10 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
-      - name: Run linters
-        run: pnpm lint
-
-      - name: Type check
-        run: pnpm typecheck
-
-      - name: Run unit test
-        run: pnpm test
-
-      - name: Build the lib
-        run: pnpm build
+      - name: Publish to npm
+        run: npm publish

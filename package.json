@@ -45,7 +45,7 @@
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "pnpm run build",
     "script:generate-api-doc": "tsx ./scripts/generate-api-doc.ts",
-    "release": "bumpp --commit --push --tag && npm publish"
+    "release": "bumpp --commit --tag --push"
   },
   "devDependencies": {
     "@antfu/eslint-config": "5.3.0",
