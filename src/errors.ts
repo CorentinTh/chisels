@@ -15,5 +15,5 @@ export { castError };
  *  ```
  */
 function castError(error: unknown): Error {
-  return error instanceof Error ? error : new Error(error ? String(error) : undefined);
+  return error instanceof Error ? error : new Error(error !== undefined && error !== null ? String(error) : undefined);
 }

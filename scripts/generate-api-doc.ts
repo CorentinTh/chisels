@@ -23,7 +23,7 @@ const markdown = apiDocs
     const type = doc.kind === 'function' ? 'Function' : 'Type alias';
     const location = `[See source](${makeProjectRootRelativePath(doc.location.filename)}#L${doc.location.line})`;
     const documentation = doc.jsDoc?.doc;
-    const example = doc.jsDoc?.tags?.find(tag => tag.kind === 'example')?.doc;
+    const example = (doc.jsDoc?.tags?.find(tag => tag.kind === 'example') as ({ doc: string }) | undefined)?.doc;
 
     return [title, `${type} - ${location}`, documentation, example].filter(Boolean).join('\n\n');
   })

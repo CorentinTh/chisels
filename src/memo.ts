@@ -20,6 +20,6 @@ export function memoizeOnce<T>(value: () => T): () => T {
       cache = value();
     }
 
-    return cache;
+    return cache!;
   };
 }

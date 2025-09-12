@@ -9,6 +9,10 @@ export default antfu({
     'README.md',
   ],
 
+  typescript: {
+    tsconfigPath: './tsconfig.json',
+  },
+
   rules: {
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],
