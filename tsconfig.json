@@ -4,10 +4,13 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "skipLibCheck": true
-  },
-  "include": [
-    "src"
-  ]
+  }
 }

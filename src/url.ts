@@ -11,7 +11,7 @@ export { buildUrl, joinUrlPaths };
  * ```
  */
 function joinUrlPaths(...parts: (string | null | undefined)[]): string {
-  return parts.map(part => part?.replace(/(^\/|\/$)/g, '')).filter(Boolean).join('/');
+  return parts.map(part => part?.replace(/^\/|\/$/g, '')).filter(Boolean).join('/');
 }
 
 /**
@@ -46,7 +46,7 @@ function buildUrl({
     }
   }
 
-  if (hash) {
+  if (hash !== undefined) {
     url.hash = hash;
   }
 

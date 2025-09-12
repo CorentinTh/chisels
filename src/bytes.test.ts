@@ -27,6 +27,7 @@ describe('bytes', () => {
 
     test('if no units are provided for the base, an error is thrown', () => {
       expect(() => formatBytes({ bytes: 12, units: [] })).to.throw('No units defined for base 1024');
+      // eslint-disable-next-line ts/no-unsafe-assignment
       expect(() => formatBytes({ bytes: 12, base: 42 as any })).to.throw('No units defined for base 42');
     });
   });

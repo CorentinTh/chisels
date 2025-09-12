@@ -19,6 +19,7 @@ export { injectArguments };
  * ```
  */
 function injectArguments<Functions extends Dictionary<(args: any) => any>, InjectedArgs>(functions: Functions, injectedArgs: InjectedArgs) {
+  // eslint-disable-next-line ts/no-unsafe-return
   return Object.fromEntries(Object.entries(functions).map(([key, fn]) => [key, (args: any) => fn({ ...args, ...injectedArgs })])) as {
     [K in keyof Functions]: Expand<Subtract<Parameters<Functions[K]>[0], InjectedArgs>> extends infer Args
       ? keyof Args extends never
