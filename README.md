@@ -25,12 +25,10 @@ pnpm add @corentinth/chisels
 
 ## Usage
 
+Example importing the `safely` function:
 ```ts
 // Using ES6 import
 import { safely } from '@corentinth/chisels';
-
-// Using CommonJS require
-const { safely } = require('@corentinth/chisels');
 
 const [result, error] = safely(mayThrowError);
 
