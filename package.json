@@ -48,10 +48,10 @@
     "release": "bumpp --commit --push --tag && npm publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.11.0",
+    "@antfu/eslint-config": "5.3.0",
     "@vitest/coverage-v8": "3.2.4",
     "bumpp": "10.1.0",
-    "eslint": "9.23.0",
+    "eslint": "9.35.0",
     "tsdoc-extractor": "0.2.0",
     "tsdown": "0.15.0",
     "tsx": "4.19.3",
