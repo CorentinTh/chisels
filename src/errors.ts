@@ -15,5 +15,19 @@ export { castError };
  *  ```
  */
 function castError(error: unknown): Error {
-  return error instanceof Error ? error : new Error(error !== undefined && error !== null ? String(error) : undefined);
+  if (error instanceof Error) {
+    return error;
+  }
+
+  if (error === null || error === undefined) {
+    return new Error('Unknown error');
+  }
+
+  const isObject = typeof error === 'object';
+
+  if (isObject) {
+    return Object.assign(new Error('Unknown error'), error);
+  }
+
+  return new Error(String(error));
 }
